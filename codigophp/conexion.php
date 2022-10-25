@@ -1,6 +1,6 @@
 <?php
     $servidor="db"; // porque es el nombre asociado en docker-compose
-    $usuario="administrador";
+    $usuario="root";
     $clave="pestillo";
     $bd="proyecto_imgflip";
     try {

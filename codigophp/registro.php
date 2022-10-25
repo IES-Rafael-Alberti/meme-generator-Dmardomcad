@@ -5,16 +5,16 @@ if(isset($_POST['nombre'])) {
 
     // recupera los datos del formulario
     $nombre = $_POST["nombre"];
-    $edad = $_POST["pwd"];
+    $pwd = $_POST["pwd"];
 
     // copia el archivo temporal en fotos con su nombre original
-    file_put_contents("fotos/$foto", file_get_contents($_FILES["foto"]["tmp_name"]));
+    //file_put_contents("fotos/$foto", file_get_contents($_FILES["foto"]["tmp_name"]));
     
     // prepara la sentencia SQL. Le doy un nombre a cada dato del formulario 
-    $sql = "INSERT INTO usuario (nombre, edad) values (:nombre, :edad, :foto)";
+    $sql = "INSERT INTO usuario (nombre, pwd) values (:nombre, :pwd)";
     // asocia valores a esos nombres
     $datos = array("nombre" => $nombre,
-                   "edad" => $edad
+                   "pwd" => $pwd
                   );
     // comprueba que la sentencia SQL preparada está bien 
     $stmt = $conn->prepare($sql);
@@ -23,7 +23,7 @@ if(isset($_POST['nombre'])) {
         print("No se pudo dar de alta");
         exit(0);
     }
-    
+    header("Location: index.php");
     exit(0);
 }
 ?>
@@ -40,8 +40,8 @@ if(isset($_POST['nombre'])) {
 <form action="" method="post" enctype="multipart/form-data">
     <label for="nombre">Nombre: </label>
     <input type="text" name="nombre" id="nombre">
-    <label for="edad">Edad: </label>
-    <input type="text" name="edad" id="edad">
+    <label for="pwd">Password: </label>
+    <input type="text" name="pwd" id="pwd">
     <input type="submit" value="Enviar">
 </form>    
 </body>
