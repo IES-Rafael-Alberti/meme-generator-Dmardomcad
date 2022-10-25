@@ -11,7 +11,7 @@ if(isset($_POST['nombre'])) {
     file_put_contents("fotos/$foto", file_get_contents($_FILES["foto"]["tmp_name"]));
     
     // prepara la sentencia SQL. Le doy un nombre a cada dato del formulario 
-    $sql = "INSERT INTO usuario (nombre, edad, foto) values (:nombre, :edad, :foto)";
+    $sql = "INSERT INTO usuario (nombre, edad) values (:nombre, :edad, :foto)";
     // asocia valores a esos nombres
     $datos = array("nombre" => $nombre,
                    "edad" => $edad
