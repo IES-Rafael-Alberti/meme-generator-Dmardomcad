@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['nombre'])) {
 
-    require("conexion.php");
+    require("conecta.php");
 
     // recupera los datos del formulario
     $nombre = $_POST["nombre"];
@@ -23,7 +23,7 @@ if(isset($_POST['nombre'])) {
         print("No se pudo dar de alta");
         exit(0);
     }
-    header("Location: index.php");
+    header("Location: login.php");
     exit(0);
 }
 ?>

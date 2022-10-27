@@ -1,16 +1,16 @@
 <?php
-if(isset($_POST['usuario'])) {
-   require("conexion.php");
+if(isset($_POST['nombre'])) {
+   require("conecta.php");
 
     // recupera los datos del formulario
-    $usuario = $_POST["usuario"];
-    $password = $_POST["password"];
+    $nombre = $_POST["nombre"];
+    $pwd = $_POST["pwd"];
    
     // prepara la sentencia SQL. Le doy un nombre a cada dato del formulario 
-    $sql = "SELECT * FROM usuario WHERE nombre = :usuario AND pwd = :pwd";
+    $sql = "SELECT * FROM nombre WHERE nombre = :nombre AND pwd = :pwd";
     // asocia valores a esos nombres
-    $datos = array("usuario" => $usuario,
-                   "pwd" => $password
+    $datos = array("nombre" => $nombre,
+                   "pwd" => $pwd
                   );
     // comprueba que la sentencia SQL preparada está bien 
     $stmt = $conn->prepare($sql);
@@ -18,7 +18,7 @@ if(isset($_POST['usuario'])) {
     $stmt->execute($datos);
     if($stmt->rowCount() == 1) {
         session_start();
-        $_SESSION["usuario"] = $usuario;
+        $_SESSION["nombre"] = $nombre;
         session_write_close();
         header("Location: index.php");
         exit(0);
@@ -38,10 +38,10 @@ if(isset($_POST['usuario'])) {
 </head>
 <body>
 <form action="" method="post" enctype="multipart/form-data">
-    <label for="usuario">Usuario: </label>
-    <input type="text" name="usuario" id="usuario">
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password">
+    <label for="nombre">nombre: </label>
+    <input type="text" name="nombre" id="nombre">
+    <label for="pwd">pwd: </label>
+    <input type="pwd" name="pwd" id="pwd">
     <input type="submit" value="Login">
 </form>    
 </body>
