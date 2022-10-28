@@ -7,7 +7,7 @@ if(isset($_POST['nombre'])) {
     $pwd = $_POST["pwd"];
    
     // prepara la sentencia SQL. Le doy un nombre a cada dato del formulario 
-    $sql = "SELECT * FROM nombre WHERE nombre = :nombre AND pwd = :pwd";
+    $sql = "SELECT * FROM usuario WHERE nombre = :nombre AND pwd = :pwd";
     // asocia valores a esos nombres
     $datos = array("nombre" => $nombre,
                    "pwd" => $pwd
@@ -34,14 +34,14 @@ if(isset($_POST['nombre'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protectora de animales RAfaNO - Login</title>
+    <title>Login memes</title>
 </head>
 <body>
 <form action="" method="post" enctype="multipart/form-data">
-    <label for="nombre">nombre: </label>
+    <label for="nombre">Nombre: </label>
     <input type="text" name="nombre" id="nombre">
-    <label for="pwd">pwd: </label>
-    <input type="pwd" name="pwd" id="pwd">
+    <label for="pwd">Contraseña: </label>
+    <input type="password" name="pwd" id="pwd">
     <input type="submit" value="Login">
 </form>    
 </body>

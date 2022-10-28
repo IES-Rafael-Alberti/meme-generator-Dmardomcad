@@ -40,8 +40,8 @@ if(isset($_POST['nombre'])) {
 <form action="" method="post" enctype="multipart/form-data">
     <label for="nombre">Nombre: </label>
     <input type="text" name="nombre" id="nombre">
-    <label for="pwd">Password: </label>
-    <input type="text" name="pwd" id="pwd">
+    <label for="pwd">Contraseña: </label>
+    <input type="password" name="pwd" id="pwd">
     <input type="submit" value="Enviar">
 </form>    
 </body>
