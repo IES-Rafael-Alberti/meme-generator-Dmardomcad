@@ -6,9 +6,6 @@ if(isset($_POST['nombre'])) {
     // recupera los datos del formulario
     $nombre = $_POST["nombre"];
     $pwd = $_POST["pwd"];
-
-    // copia el archivo temporal en fotos con su nombre original
-    //file_put_contents("fotos/$foto", file_get_contents($_FILES["foto"]["tmp_name"]));
     
     // prepara la sentencia SQL. Le doy un nombre a cada dato del formulario 
     $sql = "INSERT INTO usuario (nombre, pwd) values (:nombre, :pwd)";
