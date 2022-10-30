@@ -8,7 +8,7 @@ if(isset($_POST['nombre'])) {
     $pwd = $_POST["pwd"];
     
     // prepara la sentencia SQL. Le doy un nombre a cada dato del formulario 
-    $sql = "INSERT INTO usuario (nombre, pwd) values (:nombre, :pwd)";
+    $sql = "INSERT INTO usuarios (nombre, pwd) values (:nombre, :pwd)";
     // asocia valores a esos nombres
     $datos = array("nombre" => $nombre,
                    "pwd" => $pwd

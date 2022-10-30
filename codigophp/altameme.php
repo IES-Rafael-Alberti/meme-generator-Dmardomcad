@@ -1,27 +1,25 @@
 <?php
-//url for meme list
-$url = 'https://api.imgflip.com/get_memes';
-
-//open connection
-$ch = curl_init();
-
-//set the url
-curl_setopt($ch,CURLOPT_URL, $url);
-
-//So that curl_exec returns the contents of the cURL; rather than echoing it
-curl_setopt($ch,CURLOPT_RETURNTRANSFER, true); 
-
-//receive url content 
-$result = curl_exec($ch);
-
-//decode content (assoc array)
-$data = json_decode($result, true);
-
-//if success shows images
-if($data["success"]) {
-    //iterates over memes array
-    foreach($data["data"]["memes"] as $meme) {
-        //show meme image
-        echo "<img width='50px' src='" . $meme["url"] . "'>";
+    //checks if requested from form
+    if(isset($_FILES["imageFile"])) {
+        //move image into images folder
+        move_uploaded_file($_FILES["imageFile"]["tmp_name"], "images/" . basename($_FILES["imageFile"]["name"]));
     }
-}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir imagen</title>
+</head>
+<body>
+    <!-- MANDATORY: multipart/form-data -->
+    <form action="" method="post" enctype="multipart/form-data">
+    Imagen:
+    <!-- input for uploading files -->
+    <input type="file" name="imageFile" id="imageFile">
+    <input type="submit" value="Subir" name="submit">
+    </form>
+</body>
+</html>

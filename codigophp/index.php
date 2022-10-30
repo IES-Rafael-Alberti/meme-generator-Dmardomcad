@@ -12,13 +12,19 @@ require("conecta.php");
     <title>Página principal</title>
 </head>
 <body>
-    <td>
-    <tr>
-    <span>Mis memes</span>    
-    </tr>
-    </td>
+    <header>
+        <h1> LOS MEMES CORPORATION <h1>
+    </header>
+    <main>
+        <td>
+        <tr>
+        <span>Mis memes</span>
+        </tr>
+        </td>
+    </main>
+    <footer>
     <a href="phpinfo.php">phpinfo()</a>
     <a href="xdebug_info.php">xdebug_info()</a> 
-
+    </footer>
 </body>
 </html>

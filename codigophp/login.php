@@ -7,7 +7,7 @@ if(isset($_POST['nombre'])) {
     $pwd = $_POST["pwd"];
    
     // prepara la sentencia SQL. Le doy un nombre a cada dato del formulario 
-    $sql = "SELECT * FROM usuario WHERE nombre = :nombre AND pwd = :pwd";
+    $sql = "SELECT * FROM usuarios WHERE nombre = :nombre AND pwd = :pwd";
     // asocia valores a esos nombres
     $datos = array("nombre" => $nombre,
                    "pwd" => $pwd
@@ -43,6 +43,8 @@ if(isset($_POST['nombre'])) {
     <label for="pwd">Contraseña: </label>
     <input type="password" name="pwd" id="pwd">
     <input type="submit" value="Login">
-</form>    
+</form>
+<p>¿No tiene cuenta? <a href="registro.php">haga click aquí</a></p>
+    
 </body>
 </html>
