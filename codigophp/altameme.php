@@ -1,10 +1,8 @@
-<?php
-    //checks if requested from form
-    if(isset($_FILES["imageFile"])) {
-        //move image into images folder
-        move_uploaded_file($_FILES["imageFile"]["tmp_name"], "images/" . basename($_FILES["imageFile"]["name"]));
-    }
+<?php 
+echo "<img width=30% src='$_GET[url]'><br>";
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,12 +12,17 @@
     <title>Subir imagen</title>
 </head>
 <body>
-    <!-- MANDATORY: multipart/form-data -->
-    <form action="" method="post" enctype="multipart/form-data">
-    Imagen:
+    <?php $text_boxes = $_GET['cajas'];?>
+    <form action="meme.php" method="post">
     <!-- input for uploading files -->
-    <input type="file" name="imageFile" id="imageFile">
-    <input type="submit" value="Subir" name="submit">
+    <input type="hidden" name="id" value="<?php echo $_GET['id'];?>">
+    <input type="hidden" name="meme_box" value="<?php echo $_GET['box_count'];?>">
+    <?php
+    for($i=1;$i<=$text_boxes;$i++){
+        print("<input type='text' name='text_meme$i'>");
+
+    }
+    ?>
     </form>
 </body>
 </html>

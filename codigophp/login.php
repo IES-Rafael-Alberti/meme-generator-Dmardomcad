@@ -17,8 +17,10 @@ if(isset($_POST['nombre'])) {
     // ejecuta la sentencia usando los valores
     $stmt->execute($datos);
     if($stmt->rowCount() == 1) {
+        $datosUsuario = $stmt->fetch();
         session_start();
         $_SESSION["nombre"] = $nombre;
+        $_SESSION["id"] = $datosUsuario["id"];
         session_write_close();
         header("Location: index.php");
         exit(0);

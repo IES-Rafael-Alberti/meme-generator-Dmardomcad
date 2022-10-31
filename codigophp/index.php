@@ -1,6 +1,6 @@
 <?php
+require("testlogin.php");
 require("conecta.php");
-
 ?>
 
 <!DOCTYPE html>
