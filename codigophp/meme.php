@@ -1,4 +1,5 @@
 <?php
+require("conecta.php")
 //url for meme list
 $url = 'https://api.imgflip.com/get_memes';
 
