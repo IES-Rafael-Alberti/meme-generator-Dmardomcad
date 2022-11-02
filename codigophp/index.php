@@ -14,13 +14,25 @@ require("conecta.php");
 <body>
     <header>
         <h1> LOS MEMES CORPORATION <h1>
+        <?php $nombre = $_SESSION['nombre']; ?>
     </header>
     <main>
-        <td>
-        <tr>
-        <span>Mis memes</span>
-        </tr>
-        </td>
+        <p>Mis memes</p>
+
+        <?php
+        $memes = $conn->query("SELECT * FROM memes WHERE id_usuario = (SELECT id FROM usuarios WHERE nombre = '$nombre')");
+            if ($memes->rowCount() == 0){
+                print("No hay memes");
+            }
+            else {
+                while($meme = $memes->fetchObject()){
+                print("<img width='125px'='200px' src='".$meme->ruta."' alt='".$meme->nombrememe."'>");
+                print("<p>".$meme->nombrememe."</p>");
+                }
+            }
+        ?>
+        <p><a href=listadomemes.php>Crear Meme</a></p>
+        <p><a href=logout.php>Desconectarse</a></p>
     </main>
     <footer>
     <a href="phpinfo.php">phpinfo()</a>

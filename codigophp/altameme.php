@@ -13,22 +13,23 @@ echo "<img width=30% src='$_GET[url]'><br>";
 </head>
 
 <body>
-    <?php $text_boxes = $_GET['cajas'];?>
+<?php
+$id=$_GET["id"];
+$url=$_GET["url"];
+$cajas=$_GET["cajas"];
+?>
     <form action="meme.php" method="post">
-        <?php $template_id=$_GET["id"]; ?>
-        <?php $cajas = $_GET["cajas"]; ?>
-
-        <input type="hidden" name="id" value="$template_id">
-        <input type="hidden" name="meme_box" value="$cajas">
+        <input type="hidden" name="id" value=<?php echo "$id";?>>
+        <input type="hidden" name="url" value=<?php echo "$url";?>>
+        <input type="hidden" name="cajas" value=<?php echo "$cajas";?>>
         <?php
-        for($i=1;$i<=$text_boxes;$i++){
-            print("<input type='text' name='text_meme$i'>");
+        for($i=1;$i<=$cajas;$i++){
+            print("<input type='text' name='cajas$i'>");
 
         }
         ?>
-        <input type="submit" value="Crear Meme">
+        <input type="submit" value="Crear Meme" action="meme.php">
     </form>
 
 </body>
-
 </html>
