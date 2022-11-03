@@ -54,6 +54,7 @@ if($data["success"]) {
     );
 
     $stmt = $conn->prepare($sql);
+    print("<a href=index.php>Meme creado. Volver al inicio</a>");
 
     if($stmt->execute($datos)!=1){
         echo ("No se puede añadir el meme a la database");

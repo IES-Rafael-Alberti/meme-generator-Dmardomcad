@@ -26,8 +26,10 @@ require("conecta.php");
             }
             else {
                 while($meme = $memes->fetchObject()){
-                print("<img width='125px'='200px' src='".$meme->ruta."' alt='".$meme->nombrememe."'>");
+                print("<img width='300px' src='".$meme->ruta."' alt='".$meme->nombrememe."'>");
+                print("<h4>Nombre del meme:</h4>");
                 print("<p>".$meme->nombrememe."</p>");
+                print("<a href = borrarMeme.php>BORRAR</a>");
                 }
             }
         ?>

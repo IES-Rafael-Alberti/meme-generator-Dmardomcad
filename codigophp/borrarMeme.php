@@ -3,7 +3,7 @@ require ("conecta.php");
 
 $meme = $_GET['id'];
 
-$sql = "DELETE FROM meme WHERE id = :id";
+$sql = "DELETE FROM memes WHERE id = :id";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(":id", $meme);
 if($stmt->execute() != 1) {
