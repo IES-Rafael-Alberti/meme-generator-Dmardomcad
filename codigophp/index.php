@@ -31,6 +31,7 @@ require("conecta.php");
                 }
             }
         ?>
+        
         <p><a href=listadomemes.php>Crear Meme</a></p>
         <p><a href=logout.php>Desconectarse</a></p>
     </main>
